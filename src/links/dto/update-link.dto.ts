@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsString, IsUrl } from 'class-validator';
 
-export class CreateLinkDto {
+export class UpdateLinkDto {
   @IsNotEmpty()
   @IsString()
   name: string;

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
+import { LinksModule } from '../links/links.module';
 import { WildcardController } from './wildcard.controller';
-import { LinksModule } from 'src/links/links.module';
 
 @Module({
   imports: [LinksModule],

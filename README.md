@@ -22,12 +22,12 @@ yarn install --frozen-lockfile
 yarn start:dev
 ```
 
-7. Build and run the Docker image.
+Or build and run the Docker image.
 
 ```bash
 yarn docker-compose:dev
 ```
 
-8. Access the app at http://localhost:3000.
+7. Access the app at http://localhost:3000.
 
 ### Main routes

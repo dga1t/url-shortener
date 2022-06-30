@@ -22,7 +22,7 @@ yarn install --frozen-lockfile
 ```bash
 yarn start:dev || yarn docker-compose:dev
 ```
-`NOTE - if running app localy DB_HOST=localhost inside stage.dev.env and for docker-composr DB_HOST=db`
+`NOTE - inside stage.dev.env file set DB_HOST=localhost if running app localy and DB_HOST=db if running docker-compose`
 
 5. Access the app at http://localhost:3000.
 

@@ -1,24 +1,20 @@
-# NestJS PostgreSQL URL Shortener
-
-[![CI/CD](https://github.com/dominicarrojado/nestjs-postgres-url-shortener/actions/workflows/ci.yml/badge.svg)](https://github.com/dominicarrojado/nestjs-postgres-url-shortener/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/dominicarrojado/nestjs-postgres-url-shortener/branch/main/graph/badge.svg?token=FQF6RYCF9P)](https://codecov.io/gh/dominicarrojado/nestjs-postgres-url-shortener)
-
-A URL shortener server-side app built with [Nest.js](https://nestjs.com/) and [PostgreSQL](https://www.postgresql.org/).
+# URL Shortener
 
 ## Quick Start
 
-1. Install [Node.js](https://nodejs.org/en/download/) - _for IDE type checking_.
-2. Install [Yarn](https://yarnpkg.com/lang/en/docs/install/) - _for IDE type checking_.
-3. Install [Docker Compose](https://docs.docker.com/compose/install/) and make sure it is running in the system background.
+1. Install [Node.js](https://nodejs.org/en/download/)
+2. Install [Yarn](https://yarnpkg.com/lang/en/docs/install/)
+3. Install [Docker Compose](https://docs.docker.com/compose/install/)
 4. Clone the app:
 
 ```bash
-git clone git@github.com:dominicarrojado/nestjs-postgres-url-shortener.git
+git clone git@github.com:dga1t/url-shortener.git
 ```
 
-5. Install npm packages - _for IDE type checking_.
+5. Install npm packages
 
 ```bash
-cd nestjs-postgres-url-shortener
+cd url-shortener
 yarn install --frozen-lockfile
 ```
 

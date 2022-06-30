@@ -22,6 +22,7 @@ yarn install --frozen-lockfile
 ```bash
 yarn start:dev || yarn docker-compose:dev
 ```
+==NOTE - if running app localy DB_HOST=localhost inside stage.dev.env and for docker-composr DB_HOST=db==
 
 5. Access the app at http://localhost:3000.
 
@@ -57,11 +58,11 @@ yarn start:dev || yarn docker-compose:dev
 
 ```json
 {
-  "name": "longestintheworld",  // *optional
+  "name": "longestintheworld",
   "url": "https://llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch.co.uk/"
 }
 ```
-*if name is not provided - it will be generated randomly
+==name is value is optional, if not provided - it will be generated randomly==
 
 ### Success Response
 

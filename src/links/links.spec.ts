@@ -1,21 +1,23 @@
-import { INestApplication } from '@nestjs/common';
-import * as request from 'supertest';
-import { Connection } from 'typeorm';
-import faker from '@faker-js/faker';
 import { clearRepositories, createNestApplication } from '../test-helpers';
+import { INestApplication } from '@nestjs/common';
 import { LinksRepository } from './links.repository';
+import { Connection } from 'typeorm';
 import { Link } from './link.entity';
+import faker from '@faker-js/faker';
+import * as request from 'supertest';
 
 describe('Links', () => {
   let app: INestApplication;
   let dbConnection: Connection;
   let linksRepository: LinksRepository;
+
   const createLinkBody = () => {
     return {
       name: faker.word.noun(),
       url: faker.internet.url(),
     };
   };
+  
   const createInvalidLinkBodies = () => {
     const validLink = createLinkBody();
 
@@ -25,8 +27,6 @@ describe('Links', () => {
       {},
 
       // invalid name
-      { name: undefined, url: validLink.url },
-      { name: null, url: validLink.url },
       { name: faker.datatype.boolean(), url: validLink.url },
       { name: faker.datatype.number(), url: validLink.url },
       { name: JSON.parse(faker.datatype.json()), url: validLink.url },

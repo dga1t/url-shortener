@@ -7,23 +7,26 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { CreateLinkDto } from './dto/create-link.dto';
 import { GetLinkDto } from './dto/get-link.dto';
+import { CreateLinkDto } from './dto/create-link.dto';
 import { UpdateLinkDto } from './dto/update-link.dto';
-import { Link } from './link.entity';
 import { LinksService } from './links.service';
+import { Link } from './link.entity';
+
+import faker from '@faker-js/faker';
 
 @Controller('links')
 export class LinksController {
   constructor(private readonly linksService: LinksService) {}
-
+  
   @Get()
   getAllLinks(): Promise<Link[]> {
     return this.linksService.getAllLinks();
   }
-
+  
   @Post()
   createLink(@Body() createLinkDto: CreateLinkDto): Promise<Link> {
+    if (!createLinkDto.name) createLinkDto.name = faker.random.alpha(8);    
     return this.linksService.createLink(createLinkDto);
   }
 

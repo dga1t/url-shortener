@@ -1,10 +1,10 @@
+import { EntityRepository, Repository } from 'typeorm';
+import { CreateLinkDto } from './dto/create-link.dto';
+import { Link } from './link.entity';
 import {
   ConflictException,
   InternalServerErrorException,
 } from '@nestjs/common';
-import { EntityRepository, Repository } from 'typeorm';
-import { CreateLinkDto } from './dto/create-link.dto';
-import { Link } from './link.entity';
 
 @EntityRepository(Link)
 export class LinksRepository extends Repository<Link> {

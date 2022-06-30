@@ -1,34 +1,42 @@
 ## Quick Start
 
-1. Install [Node.js](https://nodejs.org/en/download/)
-2. Install [Yarn](https://yarnpkg.com/lang/en/docs/install/)
-3. Install [Docker Compose](https://docs.docker.com/compose/install/)
-4. Clone the app:
+1. Install dependencies:
+ - [Node.js](https://nodejs.org/en/download/)
+ - [Yarn](https://yarnpkg.com/lang/en/docs/install/)
+ - [Docker Compose](https://docs.docker.com/compose/install/)
+2. Clone the app:
 
 ```bash
 git clone git@github.com:dga1t/url-shortener.git
 ```
 
-5. Install npm packages
+3. Install npm packages
 
 ```bash
 cd url-shortener
 yarn install --frozen-lockfile
 ```
 
-6. Build app localy or build and run the Docker image.
+4. Build app localy or build and run the Docker image.
 
 ```bash
 yarn start:dev || yarn docker-compose:dev
 ```
 
-7. Access the app at http://localhost:3000.
+5. Access the app at http://localhost:3000.
 
 ## Endpoints:
 
-GET - http://localhost:3000/links
+**URL** : `/links`
 
-response:
+**Method** : `GET`
+
+### Success Response
+
+**Code** : `200 OK`
+
+**Content example**
+
 ```json
 [
     {
@@ -39,6 +47,7 @@ response:
 ]
 ```
 
+***
 
 **URL** : `/links`
 
@@ -76,7 +85,7 @@ response:
 }
 ```
 
-## Error Response
+### Error Response
 
 **Condition** : If short name already exists.
 
@@ -106,3 +115,7 @@ response:
     "error": "Bad Request"
 }
 ```
+
+***
+
+

@@ -53,15 +53,6 @@ yarn start:dev || yarn docker-compose:dev
 
 **Method** : `POST`
 
-**Data constraints**
-
-```json
-{
-    "name": "[desired name for shortened url]",
-    "url": "[valid url]"
-}
-```
-
 **Data example**
 
 ```json
@@ -109,13 +100,10 @@ yarn start:dev || yarn docker-compose:dev
 ```json
 {
     "statusCode": 400,
-    "message": [
-        "url must be an URL address"
-    ],
+    "message": [ "url must be an URL address" ],
     "error": "Bad Request"
 }
 ```
 
 ***
-
 

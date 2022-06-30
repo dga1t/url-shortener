@@ -1,69 +1,113 @@
-# NestJS PostgreSQL URL Shortener
-
-[![CI/CD](https://github.com/dominicarrojado/nestjs-postgres-url-shortener/actions/workflows/ci.yml/badge.svg)](https://github.com/dominicarrojado/nestjs-postgres-url-shortener/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/dominicarrojado/nestjs-postgres-url-shortener/branch/main/graph/badge.svg?token=FQF6RYCF9P)](https://codecov.io/gh/dominicarrojado/nestjs-postgres-url-shortener)
-
-A URL shortener server-side app built with [Nest.js](https://nestjs.com/) and [PostgreSQL](https://www.postgresql.org/).
-
 ## Quick Start
 
-1. Install [Node.js](https://nodejs.org/en/download/) - _for IDE type checking_.
-2. Install [Yarn](https://yarnpkg.com/lang/en/docs/install/) - _for IDE type checking_.
-3. Install [Docker Compose](https://docs.docker.com/compose/install/) and make sure it is running in the system background.
-4. Clone the app:
+1. Install dependencies:
+ - [Node.js](https://nodejs.org/en/download/)
+ - [Yarn](https://yarnpkg.com/lang/en/docs/install/)
+ - [Docker Compose](https://docs.docker.com/compose/install/)
+2. Clone the app:
 
 ```bash
-git clone git@github.com:dominicarrojado/nestjs-postgres-url-shortener.git
+git clone git@github.com:dga1t/url-shortener.git
 ```
 
-5. Install npm packages - _for IDE type checking_.
+3. Install npm packages
 
 ```bash
-cd nestjs-postgres-url-shortener
+cd url-shortener
 yarn install --frozen-lockfile
 ```
 
-6. Build and run the Docker image.
+4. Build app localy or build and run the Docker image.
+
+`NOTE - inside stage.dev.env file set DB_HOST=localhost if running app localy OR if running docker-compose set DB_HOST=db`
 
 ```bash
-yarn docker-compose:dev
+yarn start:dev || yarn docker-compose:dev
 ```
 
-7. Access the app at http://localhost:3000.
-8. Make file changes and it will automatically rebuild the app.
+5. Access the app at http://localhost:3000.
 
-## Running All Tests
+## Endpoints:
 
-```bash
-yarn docker-compose:test
+**URL** : `/links`
+
+**Method** : `GET`
+
+### Success Response
+
+**Code** : `200 OK`
+
+**Content example**
+
+```json
+[
+    {
+        "id": "7df1462c-dd14-410e-9b19-7f6c2744a14b",
+        "name": "longestintheworld",
+        "url": "https://llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch.co.uk/"
+    },
+]
 ```
 
-## Running All Tests (with coverage)
+***
 
-```bash
-yarn docker-compose:test:cov
+**URL** : `/links`
+
+**Method** : `POST`
+
+**Data example**
+
+`NOTE - name value is optional, if not provided - it will be generated randomly`
+
+```json
+{
+  "name": "longestintheworld",
+  "url": "https://llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch.co.uk/"
+}
 ```
 
-## Running Tests (Watch)
+### Success Response
 
-1. Build and run the Docker image.
+**Code** : `201 Created`
 
-```bash
-yarn docker-compose:test:watch
+**Content example**
+
+```json
+{
+    "name": "longestintheworld",
+    "url": "https://llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch.co.uk/",
+    "id": "3cfcdf05-71a4-439b-afb9-725fa6ba3629"
+}
 ```
 
-2. Make file changes and it will automatically rerun tests related to changed files.
+### Error Response
 
-## Build For Production
+**Condition** : If short name already exists.
 
-```bash
-yarn docker-compose:prod
+**Code** : `409 Conflict`
+
+**Content** :
+
+```json
+{
+    "statusCode": 409,
+    "message": "Short name already exists",
+    "error": "Conflict"
+}
+```
+**Condition** : If the URL is not valid.
+
+**Code** : `400 Bad Request`
+
+**Content** :
+
+```json
+{
+    "statusCode": 400,
+    "message": [ "url must be an URL address" ],
+    "error": "Bad Request"
+}
 ```
 
-## VSCode Extensions
+***
 
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-
-## Learn
-
-Learn how to build this url shortener app [here](https://dominicarrojado.com/posts/building-a-link-shortener-api-with-nestjs-and-postgresql-with-tests-part-1/).

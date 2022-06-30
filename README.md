@@ -57,10 +57,11 @@ yarn start:dev || yarn docker-compose:dev
 
 ```json
 {
-  "name": "longestintheworld",
+  "name": "longestintheworld",  // *optional
   "url": "https://llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch.co.uk/"
 }
 ```
+*if name is not provided - it will be generated randomly
 
 ### Success Response
 

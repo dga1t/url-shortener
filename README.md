@@ -1,5 +1,3 @@
-# URL Shortener
-
 ## Quick Start
 
 1. Install [Node.js](https://nodejs.org/en/download/)
@@ -18,48 +16,18 @@ cd url-shortener
 yarn install --frozen-lockfile
 ```
 
-6. Build and run the Docker image.
+6. Build app localy.
+
+```bash
+yarn start:dev
+```
+
+7. Build and run the Docker image.
 
 ```bash
 yarn docker-compose:dev
 ```
 
-7. Access the app at http://localhost:3000.
-8. Make file changes and it will automatically rebuild the app.
+8. Access the app at http://localhost:3000.
 
-## Running All Tests
-
-```bash
-yarn docker-compose:test
-```
-
-## Running All Tests (with coverage)
-
-```bash
-yarn docker-compose:test:cov
-```
-
-## Running Tests (Watch)
-
-1. Build and run the Docker image.
-
-```bash
-yarn docker-compose:test:watch
-```
-
-2. Make file changes and it will automatically rerun tests related to changed files.
-
-## Build For Production
-
-```bash
-yarn docker-compose:prod
-```
-
-## VSCode Extensions
-
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-
-## Learn
-
-Learn how to build this url shortener app [here](https://dominicarrojado.com/posts/building-a-link-shortener-api-with-nestjs-and-postgresql-with-tests-part-1/).
+### Main routes

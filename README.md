@@ -1,8 +1,6 @@
-1. Install dependencies:
+1. Set up the environment:
 
-- [Node.js](https://nodejs.org/en/download/)
-- [Yarn](https://yarnpkg.com/lang/en/docs/install/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
+`Install Node.js && Yarn && Docker && Docker Compose`
 
 2. Clone the app:
 

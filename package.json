@@ -1,5 +1,5 @@
 {
-  "name": "nestjs-postgres-url-shortener",
+  "name": "url-shortener",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -15,6 +15,7 @@
     "start:prod": "cross-env STAGE=prod node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "cross-env STAGE=dev jest --runInBand",
+    "test:cov": "cross-env STAGE=dev jest --runInBand --coverage",
     "docker-compose:dev": "docker-compose -f docker-compose.yml -f dbadmin.yml up --build"
   },
   "dependencies": {

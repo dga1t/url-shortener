@@ -1,9 +1,11 @@
 ## Quick Start
 
 1. Install dependencies:
- - [Node.js](https://nodejs.org/en/download/)
- - [Yarn](https://yarnpkg.com/lang/en/docs/install/)
- - [Docker Compose](https://docs.docker.com/compose/install/)
+
+- [Node.js](https://nodejs.org/en/download/)
+- [Yarn](https://yarnpkg.com/lang/en/docs/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
 2. Clone the app:
 
 ```bash
@@ -29,11 +31,11 @@ yarn start:dev || yarn docker-compose:dev
 
 ## Endpoints:
 
-**URL** : `/links`
+### **URL** : `/links`
 
 **Method** : `GET`
 
-### Success Response
+#### Success Response
 
 **Code** : `200 OK`
 
@@ -41,17 +43,17 @@ yarn start:dev || yarn docker-compose:dev
 
 ```json
 [
-    {
-        "id": "7df1462c-dd14-410e-9b19-7f6c2744a14b",
-        "name": "longestintheworld",
-        "url": "https://llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch.co.uk/"
-    },
+  {
+    "id": "7df1462c-dd14-410e-9b19-7f6c2744a14b",
+    "name": "longestintheworld",
+    "url": "https://llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch.co.uk/"
+  }
 ]
 ```
 
-***
+---
 
-**URL** : `/links`
+### **URL** : `/links`
 
 **Method** : `POST`
 
@@ -66,7 +68,7 @@ yarn start:dev || yarn docker-compose:dev
 }
 ```
 
-### Success Response
+#### Success Response
 
 **Code** : `201 Created`
 
@@ -74,13 +76,13 @@ yarn start:dev || yarn docker-compose:dev
 
 ```json
 {
-    "name": "longestintheworld",
-    "url": "https://llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch.co.uk/",
-    "id": "3cfcdf05-71a4-439b-afb9-725fa6ba3629"
+  "name": "longestintheworld",
+  "url": "https://llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch.co.uk/",
+  "id": "3cfcdf05-71a4-439b-afb9-725fa6ba3629"
 }
 ```
 
-### Error Response
+#### Error Response
 
 **Condition** : If short name already exists.
 
@@ -90,11 +92,12 @@ yarn start:dev || yarn docker-compose:dev
 
 ```json
 {
-    "statusCode": 409,
-    "message": "Short name already exists",
-    "error": "Conflict"
+  "statusCode": 409,
+  "message": "Short name already exists",
+  "error": "Conflict"
 }
 ```
+
 **Condition** : If the URL is not valid.
 
 **Code** : `400 Bad Request`
@@ -103,11 +106,65 @@ yarn start:dev || yarn docker-compose:dev
 
 ```json
 {
-    "statusCode": 400,
-    "message": [ "url must be an URL address" ],
-    "error": "Bad Request"
+  "statusCode": 400,
+  "message": ["url must be an URL address"],
+  "error": "Bad Request"
 }
 ```
 
-***
+---
 
+### **URL** : `/links/:id`
+
+**Method** : `DELETE`
+
+#### Success Response
+
+**Code** : `200 OK`
+
+#### Error Response
+
+**Condition** : If link with a given id does not exist.
+
+**Code** : `404 Not Found`
+
+**Content** :
+
+```json
+{
+  "statusCode": 404,
+  "message": "Link with ID: \"7df1462c-dd14-410e-9b19-7f6c2744a14b\" not found",
+  "error": "Not Found"
+}
+```
+
+---
+
+### **URL** : `/links/:id`
+
+**Method** : `PUT`
+
+**Data example**
+
+```json
+{
+  "name": "shortestintheworld",
+  "url": "https://u.nu/"
+}
+```
+
+#### Success Response
+
+**Code** : `200 OK`
+
+**Content example**
+
+```json
+{
+  "id": "32b5d526-9eef-4bb2-8564-5e71ed44336f",
+  "name": "shortestintheworld",
+  "url": "https://u.nu/"
+}
+```
+
+---

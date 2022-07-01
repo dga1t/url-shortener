@@ -25,9 +25,7 @@ export class LinksService {
   async getLink(conditions: FindConditions<Link>): Promise<Link> {
     const link = await this.linksRepository.findOne(conditions);
 
-    if (!link) {
-      throw new NotFoundException();
-    }
+    if (!link) throw new NotFoundException();
 
     return link;
   }

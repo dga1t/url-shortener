@@ -15,6 +15,7 @@ export class LinksService {
   ) {}
 
   async getAllLinks(): Promise<Array<Link>> {
+    // ! #14 - find(conditions?: FindConditions<Entity>) - use one method instead of two - getAllLinks and getLink ??
     return this.linksRepository.find({});
   }
 
@@ -22,6 +23,7 @@ export class LinksService {
     return this.linksRepository.createLink(createLinkDto);
   }
 
+  // ! #15 - signature ???
   async getLink(conditions: FindConditions<Link>): Promise<Link> {
     const link = await this.linksRepository.findOne(conditions);
 
@@ -34,6 +36,7 @@ export class LinksService {
     const { id } = getLinkDto;
     const res = await this.linksRepository.delete({ id });
 
+    // ! #16 - use remove instead of delete method ??
     if (res.affected === 0) {
       throw new NotFoundException(`Link with ID: "${id}" not found`);
     }

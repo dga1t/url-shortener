@@ -8,9 +8,11 @@ import { WildcardModule } from './wildcard/wildcard.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
+      // ! #2 change to env variable instead of config file
       envFilePath: [`stage.${process.env.STAGE}.env`],
       validationSchema: configValidationSchema,
     }),
+    // ! #4 use useClass instead of useFactory??
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -23,7 +25,10 @@ import { WildcardModule } from './wildcard/wildcard.module';
           password: configService.get('DB_PASSWORD'),
           database: configService.get('DB_DATABASE'),
           autoLoadEntities: true,
+          // ! #5 Setting synchronize: true shouldn't be used in production - otherwise you can lose production data.
           synchronize: true,
+          seeds: ['src/db/*{.ts,.js}'],
+          factories: ['src/db/*{.ts,.js}'],
         };
       },
     }),

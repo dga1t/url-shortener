@@ -6,16 +6,19 @@ import { Link } from './link.entity';
 import faker from '@faker-js/faker';
 import * as request from 'supertest';
 
+// ! #6 The Test Pyramid
 describe('Links', () => {
   let app: INestApplication;
   let dbConnection: Connection;
   let linksRepository: LinksRepository;
+
   const createLinkBody = () => {
     return {
       name: faker.word.noun(),
       url: faker.internet.url(),
     };
   };
+
   const createInvalidLinkBodies = () => {
     const validLink = createLinkBody();
 
@@ -39,11 +42,12 @@ describe('Links', () => {
       { name: validLink.name, url: faker.word.noun() },
     ];
   };
+
   const createLinkItem = async () => {
     const linkBody = createLinkBody();
-
     return linksRepository.createLink(linkBody);
   };
+  
   const createInvalidLinkIds = () => {
     return [faker.datatype.number(), faker.word.noun()];
   };
@@ -210,11 +214,9 @@ describe('Links', () => {
       const linkId = link.id;
 
       const res = await request(app.getHttpServer()).delete(`/links/${linkId}`);
-
       expect(res.status).toBe(200);
 
       const deletedLink = await linksRepository.findOne({ id: linkId });
-
       expect(deletedLink).toBeUndefined();
     });
   });

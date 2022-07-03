@@ -4,9 +4,9 @@ export class CreateLinkDto {
   @IsOptional()
   @IsString()
   // ! #7
-  name: string;
+  name!: string;
 
   @IsNotEmpty()
   @IsUrl()
-  url: string;
+  url!: string;
 }

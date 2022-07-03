@@ -17,7 +17,7 @@
     "test": "cross-env STAGE=dev jest --runInBand",
     "test:cov": "cross-env STAGE=dev jest --runInBand --coverage",
     "docker-compose:dev": "docker-compose -f docker-compose.yml -f dbadmin.yml up --build",
-    "seed:run": "cross-env STAGE=dev ts-node ./node_modules/typeorm-seeding/dist/cli.js seed --configName ormSeedConfig.ts",
+    "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed --configName ormSeedConfig.ts",
     "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config --configName ormSeedConfig.ts",
     "schema:drop": "ts-node ./node_modules/typeorm/cli.js schema:drop",
     "schema:sync": "ts-node ./node_modules/typeorm/cli.js schema:sync"

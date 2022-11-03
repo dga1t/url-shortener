@@ -1,6 +1,6 @@
 
-# NestJS PostgresSQL URL Shortner
-Tuturial by (https://codecov.io/gh/dominicarrojado/nestjs-postgres-url-shortener)
+## NestJS PostgresSQL URL Shortner
+Tutorial by (https://github.com/dominicarrojado)
 
 1. Set up the environment:
 
